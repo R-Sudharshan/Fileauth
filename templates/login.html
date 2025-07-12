@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="content-box text-center">
+        <h1 class="section-header">🔐 AI-Based Image Identity Login</h1>
+        <p class="lead">Upload your authentication image to securely access your account.</p>
+    </div>
+
+    <div class="form-container">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="auth_image" class="form-label">Authentication Image</label>
+                <div class="upload-area">
+                    <div class="card-content text-center">
+                        <div class="upload-icon">📷</div>
+                        <div class="upload-text">Upload your authentication image</div>
+                        <input type="file" id="auth_image" name="auth_image" accept="image/*" required>
+                        <div class="file-name" id="fileName"></div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Verify Identity</button>
+        </form>
+    </div>
+
+    <div class="content-box text-center">
+        <div class="security-note mb-4">
+            This system uses secure AI-generated biometric image keys. If lost, request a new one.
+        </div>
+
+        <div class="button-group">
+            <a href="{{ url_for('register') }}" class="btn btn-outline">Create Account</a>
+            <a href="{{ url_for('reset') }}" class="btn btn-primary">Reset Image</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('auth_image').addEventListener('change', function(e) {
+    const fileName = document.getElementById('fileName');
+    if (this.files && this.files[0]) {
+        const file = this.files[0];
+        fileName.innerHTML = `
+            ${file.name}
+            <span class="remove-file" onclick="clearFile()">×</span>
+        `;
+        fileName.classList.add('show');
+    } else {
+        fileName.classList.remove('show');
+    }
+});
+
+function clearFile() {
+    const input = document.getElementById('auth_image');
+    const fileName = document.getElementById('fileName');
+    input.value = '';
+    fileName.classList.remove('show');
+}
+</script>
+{% endblock %} 

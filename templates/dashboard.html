@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="content-box">
+        <h1 class="section-header">Welcome to Your Dashboard</h1>
+        <p class="lead">Manage your authentication settings and view your account information.</p>
+    </div>
+
+    <div class="grid">
+        <div class="netflix-card">
+            <div class="card-content">
+                <h3>Account Information</h3>
+                <p>Email: {{ session.get('user_email') }}</p>
+                <div class="netflix-card-badge">Profile</div>
+            </div>
+        </div>
+
+        <div class="netflix-card">
+            <div class="card-content">
+                <h3>Security Status</h3>
+                <p>Your account is protected with image-based authentication.</p>
+                <div class="netflix-card-badge">Secure</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-box text-center">
+        <div class="button-group">
+            <a href="{{ url_for('logout') }}" class="btn btn-primary">Logout</a>
+        </div>
+    </div>
+</div>
+{% endblock %} 

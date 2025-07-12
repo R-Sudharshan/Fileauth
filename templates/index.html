@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="section">
+    <div class="content-box text-center">
+        <h1 class="section-header">Welcome to FileAuth</h1>
+        <p class="lead">A secure authentication system that uses steganography to embed authentication data into images.</p>
+    </div>
+
+    <div class="grid">
+        <div class="netflix-card">
+            <div class="card-content">
+                <h3>Secure Authentication</h3>
+                <p>Your authentication data is securely embedded in images using advanced steganography techniques.</p>
+                <div class="netflix-card-badge">Security</div>
+            </div>
+        </div>
+
+        <div class="netflix-card">
+            <div class="card-content">
+                <h3>Easy to Use</h3>
+                <p>Simply register with your email and use the authentication image to log in securely.</p>
+                <div class="netflix-card-badge">Simple</div>
+            </div>
+        </div>
+
+        <div class="netflix-card">
+            <div class="card-content">
+                <h3>Location Verification</h3>
+                <p>Enhanced security with automatic location and device verification.</p>
+                <div class="netflix-card-badge">Advanced</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-box text-center">
+        <div class="button-group">
+            <a href="{{ url_for('register') }}" class="btn btn-primary">Get Started</a>
+            <a href="{{ url_for('login') }}" class="btn btn-outline">Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %} 

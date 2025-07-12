@@ -1,0 +1,7 @@
+Flask
+Pillow
+stegano
+requests
+python-dotenv
+Flask-Mail
+geoip2
